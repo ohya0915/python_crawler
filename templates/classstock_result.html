@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block content %}
+<div align="center"><td>{{ data.to_html() | safe }}</br></td></div>
+</br>   
+        <div align="center">
+                <a href="{{ url_for('classstock.class_stock') }}"><input type="button" value="Go Back To Class Stock"></a></br>
+                資料來源: https://tw.stock.yahoo.com/
+        </div>
+{% endblock content %}

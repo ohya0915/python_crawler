@@ -1,0 +1,12 @@
+
+{% extends "layout.html" %}
+{% block content %}
+    
+    {% if user %}
+        Hello!  {{ user }} ! <br>
+        Your email is {{ email }}  <br>
+        <img align="center" src={{image}}> <br>
+        You are in Hans Web! <br>
+    {% endif %}
+        Here is Hans Web!
+{% endblock content %}

@@ -1,0 +1,8 @@
+.idea
+__pycache__
+log
+instance/config.py
+ohya.db
+test.py
+instance/
+instance/config_upload.py

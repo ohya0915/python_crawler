@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method='post' url_for='main.login'>
+            {{ form.hidden_tag() }}
+                <p align="center">
+                    {{ form.name }}
+                    
+                </p>
+                <p align="center">
+                    {{ form.password }}
+                </p>
+                <p align="center">
+                    <a href="google/">
+                        <img id="google"
+                        src="https://img.shields.io/badge/Google-Connect-brightgreen?style=for-the-badge&labelColor=black&logo=google"
+                        alt="Google"> <br>
+                    </a>
+                    <br>
+                    <a href="facebook/">
+                        <img id="facebook"
+                        src="https://img.shields.io/badge/Facebook-Connect-brightgreen?style=for-the-badge&labelColor=black&logo=facebook"
+                        alt="Facebook"> <br>
+                    </a> 
+                    <br>
+                    <a href="twitter/">
+                        <img id="twitter"
+                           src="https://img.shields.io/badge/Twitter-Connect-brightgreen?style=for-the-badge&labelColor=black&logo=twitter"
+                           alt="Twitter"> <br>
+                    </a>
+                </p>
+                <p align="center">
+                    <button type='submit'>GO</button>
+                </p>
+                <p align="center">
+                    <a href="{{ url_for('main.send_mail') }}">Resend Welcome Mail</a>
+                </p>
+                <p align="center">
+                    <a href="{{ url_for('main.forget_password') }}">Forgot Password</a>
+                </p>
+        </form>
+        
+    </div>
+{% endblock content %}
+
+
+
+
+

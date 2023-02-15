@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+<!-- <div class="table">
+        <td>
+                {{ result }}
+        </td>
+</div> -->
+
+        <div align="center">
+                <caption>{{ title }}</caption>
+                <td>{{ data.to_html() | safe }}</br></td>
+                資料來源: http://www.twse.com.tw/
+        </div>
+
+        <div align="center"><a href="{{ url_for('stock.collect') }}"><input type="button" value="月成交資訊"></a></div>
+        <div align="center"><a href="{{ url_for('stock.stock_to_csv', target_year=target_year, target_stock=target_stock) }}"><input type="button" value="產生csv"></a></div>
+{% endblock content %}

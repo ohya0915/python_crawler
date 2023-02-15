@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+<div align="center"><form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <th>{{ form.target_year.label(class="form-control-label") }}</th>
+        <td>{{ form.target_year }}</td></br>
+        <th>{{ form.search_stock.label(class="form-control-label") }}</th>
+        <td>{{ form.search_stock }}</td></br>
+        {{ form.submit }}
+</form></div>
+{% endblock content %}

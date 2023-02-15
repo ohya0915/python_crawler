@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+    
+        <div class="content-section">
+            <legend>User Info</legend>
+
+            <table border= 1 cellpadding= 5 cellspacing= 10>
+                <tr>
+                    <!-- <th>&nbsp;</th> -->
+                    <th>User ID</th>
+                    <th>Name</th>
+                    <th>E-mail</th>
+                    <th>Delete</th>
+                    
+                <tr>
+                {% for User in result %}
+                <tr>
+                    
+                    <td>{{ User.id }}</td>
+                    <td>{{ User.name }}</td>
+                    <td>{{ User.email }}</td>
+                    <td><a href="{{ url_for('ohyamanage.manage_delete', id=User.id) }}"><input type="button" value="Delete"></a></td>
+                <tr>
+                {% endfor %}
+            </table>
+        </div>
+    
+
+{% endblock content %}

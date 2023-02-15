@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+<div align="center">
+        <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <th>{{ form.target_year.label(class="form-control-label") }}</th>
+        <td>{{ form.target_year }}</td></br>
+        <th>{{ form.target_month.label(class="form-control-label") }}</th>
+        <td>{{ form.target_month }}</td></br>
+        <th>{{ form.target_stock.label(class="form-control-label") }}</th>
+        <td>{{ form.target_stock }}</td></br>
+        {{ form.submit }}
+        </br>資料來源: http://www.twse.com.tw/
+        </form>
+</div>
+{% endblock content %}

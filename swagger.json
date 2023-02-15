@@ -1,0 +1,648 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "__init__",
+        "description": "",
+        "termsOfService": "",
+        "version": "0.0"
+    },
+    "paths": {
+        "/ohya/change_visit_info": {
+            "post": {
+                "tags": [
+                    "Han's web"
+                ],
+                "description": "Change visit info",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "description": "網站上顯示的名字(非帳號)",
+                        "in": "formData",
+                        "type": "string",
+                        "required": "true"
+                    },
+                    {
+                        "name": "email",
+                        "description": "信箱",
+                        "in": "formData",
+                        "type": "string",
+                        "required": "true"
+                    }
+                ],
+                "responses": {
+                    "0": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/FileModel"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "code": 0,
+                                "message": "Your name has been changed"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Failed",
+                        "examples": {
+                            "application/json": {
+                                "code": 500,
+                                "message": "Server is busy."
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/ohya/first_login": {
+            "post": {
+                "tags": [
+                    "Han's web"
+                ],
+                "description": "Email verify login",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "description": "帳號",
+                        "in": "formData",
+                        "type": "string",
+                        "required": "true"
+                    },
+                    {
+                        "name": "password",
+                        "description": "密碼",
+                        "in": "formData",
+                        "type": "string",
+                        "required": "true"
+                    },
+                    {
+                        "name": "verify_code",
+                        "description": "信箱確認碼, 註冊後將系統(ohya0915@gmail.com)寄的信welcome mail打開後點選立刻登入系統連結，登入頁面網址的最後一串32位元字串就是信箱認證碼",
+                        "in": "formData",
+                        "type": "string",
+                        "required": "true"
+                    }
+                ],
+                "responses": {
+                    "0": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/FileModel"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "code": 0,
+                                "message": "Login success"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Failed",
+                        "examples": {
+                            "application/json": {
+                                "code": 400,
+                                "message": "Can't find {name}."
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Failed",
+                        "examples": {
+                            "application/json": {
+                                "code": 401,
+                                "message": "Please check your name and password."
+                            }
+                        }
+                    },
+                    "402": {
+                        "description": "Failed",
+                        "examples": {
+                            "application/json": {
+                                "code": 402,
+                                "message": "Please verify your email first."
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Failed",
+                        "examples": {
+                            "application/json": {
+                                "code": 403,
+                                "message": "Please use the latest email to start your account."
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Failed",
+                        "examples": {
+                            "application/json": {
+                                "code": 500,
+                                "message": "Server is busy."
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/ohya/forgot_password": {
+            "post": {
+                "tags": [
+                    "Han's web"
+                ],
+                "description": "Forgot password",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "description": "帳號",
+                        "in": "formData",
+                        "type": "string",
+                        "required": "true"
+                    },
+                    {
+                        "name": "email",
+                        "description": "信箱",
+                        "in": "formData",
+                        "type": "string",
+                        "required": "true"
+                    }
+                ],
+                "responses": {
+                    "0": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/FileModel"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "code": 0,
+                                "message": "Your mail has been send"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Failed",
+                        "examples": {
+                            "application/json": {
+                                "code": 400,
+                                "message": "Can't find {name}."
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Failed",
+                        "examples": {
+                            "application/json": {
+                                "code": 404,
+                                "message": "Account or email is not correct."
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Failed",
+                        "examples": {
+                            "application/json": {
+                                "code": 500,
+                                "message": "Server is busy."
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/ohya/login": {
+            "post": {
+                "tags": [
+                    "Han's web"
+                ],
+                "description": "Login",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "description": "帳號",
+                        "in": "formData",
+                        "type": "string",
+                        "required": "true"
+                    },
+                    {
+                        "name": "password",
+                        "description": "密碼",
+                        "in": "formData",
+                        "type": "string",
+                        "required": "true"
+                    }
+                ],
+                "responses": {
+                    "0": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/FileModel"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "code": 0,
+                                "message": "Login success"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Failed",
+                        "examples": {
+                            "application/json": {
+                                "code": 400,
+                                "message": "Can't find {name}."
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Failed",
+                        "examples": {
+                            "application/json": {
+                                "code": 401,
+                                "message": "Please check your name and password."
+                            }
+                        }
+                    },
+                    "402": {
+                        "description": "Failed",
+                        "examples": {
+                            "application/json": {
+                                "code": 402,
+                                "message": "Please verify your email first."
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Failed",
+                        "examples": {
+                            "application/json": {
+                                "code": 403,
+                                "message": "Please use the latest email to start your account."
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Failed",
+                        "examples": {
+                            "application/json": {
+                                "code": 500,
+                                "message": "Server is busy."
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/ohya/register": {
+            "post": {
+                "tags": [
+                    "Han's web"
+                ],
+                "description": "Register",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "description": "帳號",
+                        "in": "formData",
+                        "type": "string",
+                        "required": "true"
+                    },
+                    {
+                        "name": "password",
+                        "description": "密碼, password rules: 1.Complexity: At least one lower letter(a-z),one upper letter(A-Z),one number(0-9),one special symbols(~.!@#$%^&*()_+|\\{\\}[];:'\",<>?/), 2.Length:At least 8 letters",
+                        "in": "formData",
+                        "type": "string",
+                        "required": "true"
+                    },
+                    {
+                        "name": "email",
+                        "description": "信箱",
+                        "in": "formData",
+                        "type": "string",
+                        "required": "true"
+                    }
+                ],
+                "responses": {
+                    "0": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/FileModel"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "code": 0,
+                                "message": "Your account has been created! You need verify email first"
+                            }
+                        }
+                    },
+                    "410": {
+                        "description": "Failed",
+                        "examples": {
+                            "application/json": {
+                                "code": 410,
+                                "message": "Password at least {min_length} chracters"
+                            }
+                        }
+                    },
+                    "411": {
+                        "description": "Failed",
+                        "examples": {
+                            "application/json": {
+                                "code": 411,
+                                "message": "Passowrd does not meet complexity rules"
+                            }
+                        }
+                    },
+                    "412": {
+                        "description": "Failed",
+                        "examples": {
+                            "application/json": {
+                                "code": 412,
+                                "message": "{name} has been used."
+                            }
+                        }
+                    },
+                    "413": {
+                        "description": "Failed",
+                        "examples": {
+                            "application/json": {
+                                "code": 413,
+                                "message": "{email} has been used."
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Failed",
+                        "examples": {
+                            "application/json": {
+                                "code": 500,
+                                "message": "Server is busy."
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/ohya/reset_password": {
+            "post": {
+                "tags": [
+                    "Han's web"
+                ],
+                "description": "Send welcome mail",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "description": "帳號",
+                        "in": "formData",
+                        "type": "string",
+                        "required": "true"
+                    },
+                    {
+                        "name": "current_password",
+                        "description": "舊密碼",
+                        "in": "formData",
+                        "type": "string",
+                        "required": "true"
+                    },
+                    {
+                        "name": "new_password",
+                        "description": "新密碼, password rules: 1.Complexity: At least one lower letter(a-z),one upper letter(A-Z),one number(0-9),one special symbols(~.!@#$%^&*()_+|\\{\\}[];:'\",<>?/), 2.Length:At least 8 letters",
+                        "in": "formData",
+                        "type": "string",
+                        "required": "true"
+                    }
+                ],
+                "responses": {
+                    "0": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/FileModel"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "code": 0,
+                                "message": "Reset password successful!"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Failed",
+                        "examples": {
+                            "application/json": {
+                                "code": 400,
+                                "message": "Can't find {name}."
+                            }
+                        }
+                    },
+                    "410": {
+                        "description": "Failed",
+                        "examples": {
+                            "application/json": {
+                                "code": 410,
+                                "message": "Password at least {min_length} chracters"
+                            }
+                        }
+                    },
+                    "411": {
+                        "description": "Failed",
+                        "examples": {
+                            "application/json": {
+                                "code": 411,
+                                "message": "Passowrd doesn't meet complexity rules"
+                            }
+                        }
+                    },
+                    "414": {
+                        "description": "Failed",
+                        "examples": {
+                            "application/json": {
+                                "code": 414,
+                                "message": "Current password is not correct."
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Failed",
+                        "examples": {
+                            "application/json": {
+                                "code": 500,
+                                "message": "Server is busy."
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/ohya/send_welcome_mail": {
+            "post": {
+                "tags": [
+                    "Han's web"
+                ],
+                "description": "Send welcome mail",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "description": "帳號",
+                        "in": "formData",
+                        "type": "string",
+                        "required": "true"
+                    },
+                    {
+                        "name": "email",
+                        "description": "信箱",
+                        "in": "formData",
+                        "type": "string",
+                        "required": "true"
+                    }
+                ],
+                "responses": {
+                    "0": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/FileModel"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "code": 0,
+                                "message": "Your welcome mail has been send"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Failed",
+                        "examples": {
+                            "application/json": {
+                                "code": 400,
+                                "message": "Can't find {name}."
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Failed",
+                        "examples": {
+                            "application/json": {
+                                "code": 404,
+                                "message": "Account or email is not correct."
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Failed",
+                        "examples": {
+                            "application/json": {
+                                "code": 500,
+                                "message": "Server is busy."
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/ohya/set_password": {
+            "post": {
+                "tags": [
+                    "Han's web"
+                ],
+                "description": "Set password",
+                "parameters": [
+                    {
+                        "name": "set_password_code",
+                        "description": "設定密碼驗證碼, 將系統(ohya0915@gmail.com)寄的set password mail打開點設定密碼連結, 設定密碼網址的最後一串32位元字串就是設定密碼驗證碼",
+                        "in": "formData",
+                        "type": "string",
+                        "required": "true"
+                    },
+                    {
+                        "name": "password",
+                        "description": "新密碼, password rules: 1.Complexity: At least one lower letter(a-z),one upper letter(A-Z),one number(0-9),one special symbols(~.!@#$%^&*()_+|\\{\\}[];:'\",<>?/), 2.Length:At least 8 letters",
+                        "in": "formData",
+                        "type": "string",
+                        "required": "true"
+                    }
+                ],
+                "responses": {
+                    "0": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/FileModel"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "code": 0,
+                                "message": "Your new password set successful!"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Failed",
+                        "examples": {
+                            "application/json": {
+                                "code": 400,
+                                "message": "Can't find user."
+                            }
+                        }
+                    },
+                    "410": {
+                        "description": "Failed",
+                        "examples": {
+                            "application/json": {
+                                "code": 410,
+                                "message": "Password at least {min_length} chracters"
+                            }
+                        }
+                    },
+                    "411": {
+                        "description": "Failed",
+                        "examples": {
+                            "application/json": {
+                                "code": 411,
+                                "message": "Passowrd does not meet complexity rules"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Failed",
+                        "examples": {
+                            "application/json": {
+                                "code": 500,
+                                "message": "Server is busy."
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "FileModel": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "verify_code": {
+                    "type": "string"
+                },
+                "new_password": {
+                    "type": "string"
+                },
+                "set_password_code": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name",
+                "password",
+                "email",
+                "verify_code",
+                "new_password",
+                "set_password_code"
+            ]
+        }
+    }
+}
